@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  />
 
   <meta charset="UTF-8" />
   <script src="script.js"></script>
   <link rel="stylesheet" href="style.css" />
   <head>
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
@@ -26,16 +32,29 @@
       crossorigin="anonymous"
     ></script>
     <div class="m-4 col-auto">
-      <button class="btn btn-dark shadow" id="btnSwitch" onclick="trocarTema()"">Trocar Tema </button>
+      <button
+        class="btn btn-dark shadow"
+        id="btnSwitch"
+        onclick="trocarTema()"
+      >
+        Trocar Tema
+      </button>
     </div>
     <div class="mt-5 container">
       <h1>Horário de Aula</h1>
 
       <form id="form-input">
         <div class="row" id="row">
-          <div class="d-flex justify-content-between inputs" id="inputs">
+          <div
+            class="d-flex justify-content-between inputs"
+            id="inputs"
+          >
             <div class="mb-3 p-2 flex-fill">
-              <label for="materia" class="form-label">Matéria:</label>
+              <label
+                for="materia"
+                class="form-label"
+                >Matéria:</label
+              >
               <input
                 class="form-control"
                 type="text"
@@ -45,7 +64,11 @@
               />
             </div>
             <div class="mb-3 p-2 flex-fill">
-              <label for="professor" class="form-label">Professor:</label>
+              <label
+                for="professor"
+                class="form-label"
+                >Professor:</label
+              >
               <input
                 class="form-control"
                 type="text"
@@ -55,7 +78,11 @@
               />
             </div>
             <div class="mb-3 p-2 flex-fill">
-              <label for="horario" class="form-label">Horário:</label>
+              <label
+                for="horario"
+                class="form-label"
+                >Horário:</label
+              >
               <input
                 class="form-control"
                 type="text"
@@ -68,7 +95,11 @@
         </div>
 
         <div>
-          <button class="btn btn-secondary" type="button" onclick="addInputs()">
+          <button
+            class="btn btn-secondary"
+            type="button"
+            onclick="addInputs()"
+          >
             Nova entrada
           </button>
           <button
@@ -84,7 +115,7 @@
 
       <h2>Quadro de Horários</h2>
       <div id="resultados">
-        <table class="table table-striped ">
+        <table class="table table-striped">
           <thead>
             <tr>
               <th>Horários</th>
@@ -95,7 +126,7 @@
               <th>Sexta</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="morning">
             <tr>
               <td>07h00 às 07h50</td>
               <td id="2-m-1"></td>
@@ -144,6 +175,100 @@
               <td id="4-m-6"></td>
               <td id="5-m-6"></td>
               <td id="6-m-6"></td>
+            </tr>
+          </tbody>
+          <tbody id="afternoon">
+            <tr>
+              <td>13h00 às 13h50</td>
+              <td id="2-t-1"></td>
+              <td id="3-t-1"></td>
+              <td id="4-t-1"></td>
+              <td id="5-t-1"></td>
+              <td id="6-t-1"></td>
+            </tr>
+            <tr>
+              <td>13h50 às 14h40</td>
+              <td id="2-t-2"></td>
+              <td id="3-t-2"></td>
+              <td id="4-t-2"></td>
+              <td id="5-t-2"></td>
+              <td id="6-t-2"></td>
+            </tr>
+            <tr>
+              <td>14h40 às 15h30</td>
+              <td id="2-t-3"></td>
+              <td id="3-t-3"></td>
+              <td id="4-t-3"></td>
+              <td id="5-t-3"></td>
+              <td id="6-t-3"></td>
+            </tr>
+            <tr>
+              <td>15h50 às 16h40</td>
+              <td id="2-t-4"></td>
+              <td id="3-t-4"></td>
+              <td id="4-t-4"></td>
+              <td id="5-t-4"></td>
+              <td id="6-t-4"></td>
+            </tr>
+
+            <tr>
+              <td>16h40 às 17h30</td>
+              <td id="2-t-5"></td>
+              <td id="3-t-5"></td>
+              <td id="4-t-5"></td>
+              <td id="5-t-5"></td>
+              <td id="6-t-5"></td>
+            </tr>
+            <tr>
+              <td>17h30 às 18h20</td>
+              <td id="2-t-6"></td>
+              <td id="3-t-6"></td>
+              <td id="4-t-6"></td>
+              <td id="5-t-6"></td>
+              <td id="6-t-6"></td>
+            </tr>
+          </tbody>
+          <tbody id="night">
+            <tr>
+              <td>18h20 às 19h10</td>
+              <td id="2-n-1"></td>
+              <td id="3-n-1"></td>
+              <td id="4-n-1"></td>
+              <td id="5-n-1"></td>
+              <td id="6-n-1"></td>
+            </tr>
+            <tr>
+              <td>19h10 às 20h00</td>
+              <td id="2-n-2"></td>
+              <td id="3-n-2"></td>
+              <td id="4-n-2"></td>
+              <td id="5-n-2"></td>
+              <td id="6-n-2"></td>
+            </tr>
+            <tr>
+              <td>20h20 às 21h10</td>
+              <td id="2-n-3"></td>
+              <td id="3-n-3"></td>
+              <td id="4-n-3"></td>
+              <td id="5-n-3"></td>
+              <td id="6-n-3"></td>
+            </tr>
+            <tr>
+              <td>21h10 às 22h00</td>
+              <td id="2-n-4"></td>
+              <td id="3-n-4"></td>
+              <td id="4-n-4"></td>
+              <td id="5-n-4"></td>
+              <td id="6-n-4"></td>
+            </tr>
+
+            <tr>
+              <td>22h00 às 22h50</td>
+              <td id="2-n-5"></td>
+              <td id="3-n-5"></td>
+              <td id="4-n-5"></td>
+              <td id="5-n-5"></td>
+              <td id="6-n-5"></td>
             </tr>
           </tbody>
         </table>

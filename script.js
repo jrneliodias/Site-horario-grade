@@ -1,4 +1,4 @@
-var contador = 1;
+const contador = 1;
 
 function addInputs() {
   const inputsDiv = document.getElementById("row");
@@ -6,10 +6,10 @@ function addInputs() {
   const newInputsDiv1 = document.createElement("div");
   const newInputsDiv2 = document.createElement("div");
   const newInputsDiv3 = document.createElement("div");
-  newInputsDiv1.className ="mb-3 p-2 flex-fill"
-  newInputsDiv2.className ="mb-3 p-2 flex-fill"
-  newInputsDiv3.className ="mb-3 p-2 flex-fill"
-  inputsDivRow.className ="d-flex justify-content-between inputs"
+  newInputsDiv1.className = "mb-3 p-2 flex-fill"
+  newInputsDiv2.className = "mb-3 p-2 flex-fill"
+  newInputsDiv3.className = "mb-3 p-2 flex-fill"
+  inputsDivRow.className = "d-flex justify-content-between inputs"
 
   const materiaLabel = document.createElement("label");
   materiaLabel.for = "materia";
@@ -63,9 +63,9 @@ function getInputs() {
   const form = document.querySelector('form');
   const formData = new FormData(form);
   const inputsArray = Array.from(formData.entries());
-  var listaAulas = [];
-  for (var i = 0; i < inputsArray.length; i += 3) {
-    var horarioCadastro = {
+  const listaAulas = [];
+  for (let i = 0; i < inputsArray.length; i += 3) {
+    const horarioCadastro = {
       [inputsArray[i][0]]: inputsArray[i][1],
       [inputsArray[i + 1][0]]: inputsArray[i + 1][1],
       [inputsArray[i + 2][0]]: inputsArray[i + 2][1],
@@ -78,11 +78,11 @@ function getInputs() {
 
 
 function separarHorario(input) {
-  var turno = input.match(/[a-zA-Z]/);
+  const turno = input.match(/[a-zA-Z]/);
   if (turno) {
-    var posicao = turno.index;
-    var diaSemana = input.substr(0, posicao);
-    var horarios = input.substr(posicao + 1);
+    const posicao = turno.index;
+    const diaSemana = input.substr(0, posicao);
+    const horarios = input.substr(posicao + 1);
     return {
       diaSemana: diaSemana,
       turno: turno[0],
@@ -95,14 +95,14 @@ function separarHorario(input) {
 }
 
 function inserirnaTabela() {
-  var listadeHorarios = getInputs();
-  for (var i = 0; i < listadeHorarios.length; i++) {
+  const listadeHorarios = getInputs();
+  for (let i = 0; i < listadeHorarios.length; i++) {
     horarioObj = listadeHorarios[i];
-    var resultado = separarHorario(horarioObj.horario);
-    var aulaposicao = resultado.horarios.split("");
+    const resultado = separarHorario(horarioObj.horario);
+    const aulaposicao = resultado.horarios.split("");
     resultado['turno'] = resultado['turno'].toLowerCase();
     // Irá mapear no vetor de aulaposicao já que ele tem cada aula separada em posicoes, irá formatar o id da tabela como 2-m-1 (dia-turno-posicaodaaula)
-    var id = aulaposicao.map(str =>
+    const id = aulaposicao.map(str =>
       resultado.diaSemana + "-" + resultado['turno'] + "-" + str);
     // Recebe o nome da matéria e da materia para adicionar no html
     textoMateriaProfessor = horarioObj.materia + "<br>" + horarioObj.professor;
@@ -112,10 +112,10 @@ function inserirnaTabela() {
   }
 }
 function mostrarResultado() {
-  var input = document.querySelectorAll('[id^="horario"]');
-  var output = '';
-  for (var i = 0; i < input.length; i++) {
-    var resultado = separarHorario(input[i].value);
+  const input = document.querySelectorAll('[id^="horario"]');
+  const output = '';
+  for (let i = 0; i < input.length; i++) {
+    const resultado = separarHorario(input[i].value);
     if (resultado) {
       output += "Dia da Semana: " + resultado.diaSemana + "<br>" +
         "Turno: " + resultado.turno + "<br>" +
@@ -145,21 +145,21 @@ function addTableData() {
 }
 
 function preencherFormulario() {
-  var materias = ["Engenharia de Processos","CLP 2","Economia para Engenheiros","Lógica Fuzzy"];
-  var professores = ["Rejane","Agessandro","Fabricio","Nonato"];
-  var horarios = ["6M3456","4M3456","2M45","3M3456"];
-  for (var i = 0; i < professores.length; i++) {
-  document.getElementById("materia-" + i).value = materias[i];
-  document.getElementById("professor-" + i).value = professores[i]
-  document.getElementById("horario-"+i).value = horarios[i];
+  const materias = ["Engenharia de Processos", "CLP 2", "Economia para Engenheiros", "Lógica Fuzzy"];
+  const professores = ["Rejane", "Agessandro", "Fabricio", "Nonato"];
+  const horarios = ["6M3456", "4M3456", "2M45", "3M3456"];
+  for (let i = 0; i < professores.length; i++) {
+    document.getElementById("materia-" + i).value = materias[i];
+    document.getElementById("professor-" + i).value = professores[i]
+    document.getElementById("horario-" + i).value = horarios[i];
   }
 }
 
-function trocarTema(){
-    if (document.documentElement.getAttribute('data-bs-theme') == 'dark') {
-        document.documentElement.setAttribute('data-bs-theme','light')
-    }
-    else {
-        document.documentElement.setAttribute('data-bs-theme','dark')
-    }
+function trocarTema() {
+  if (document.documentElement.getAttribute('data-bs-theme') == 'dark') {
+    document.documentElement.setAttribute('data-bs-theme', 'light')
+  }
+  else {
+    document.documentElement.setAttribute('data-bs-theme', 'dark')
+  }
 }
